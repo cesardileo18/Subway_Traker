@@ -1,0 +1,206 @@
+.container-loading{
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+}
+.Estado_del_Subte {
+    .accordion {
+        .accordion-button.collapsed {
+            background-color: #676b707e !important;
+            color: #000 !important;
+        }
+
+        .accordion-item {
+            .accordion-button {
+                &:focus {
+                    box-shadow: none !important;
+                }
+
+                &:not(.collapsed) {
+                    background-color: #676b70a1 !important;
+                    color: #000 !important;
+                }
+
+                .desing_line {
+                    background: #03AEE2;
+                    max-width: 40px;
+                    width: 100%;
+                    min-height: 40px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 2px;
+                    border-radius: 100%;
+                    color: white;
+                    justify-content: center;
+                }
+            }
+
+            .contenedorAlerta {
+                overflow: hidden;
+                width: 70% !important;
+                margin-left: 10px;
+
+                .text-danger {
+                    animation: slideInOut 16s infinite !important;
+                }
+
+                @keyframes slideInOut {
+                    0% {
+                        transform: translateX(100%);
+                    }
+
+                    50% {
+                        transform: translateX(0%);
+                    }
+
+                    100% {
+                        transform: translateX(-100%);
+                    }
+                }
+            }
+
+            .accordion-collapse.collapse {
+                .accordion-body {
+                    .container_uno {
+                        background: #ccc;
+                        padding: 5px;
+                        border-radius: 5px;
+
+                        .even-background {
+                            background-color: #6965658a !important;
+                            border-radius: 5px;
+                            margin-bottom: 5px;
+                            padding: 5px;
+                        }
+
+                        .odd-background {
+                            background-color: #69656555 !important;
+                            border-radius: 5px;
+                            margin-bottom: 5px;
+                            padding: 5px;
+                        }
+                    }
+
+                    .container_dos {
+                        background: #cccccc6e;
+                        padding: 5px;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+
+                        .even-backgroundDos {
+                            background-color: #69656555 !important;
+                            border-radius: 5px;
+                            margin-bottom: 5px;
+                            padding: 5px;
+                        }
+
+                        .odd-backgroundDos {
+                            background-color: #6965658a !important;
+                            border-radius: 5px;
+                            margin-bottom: 5px;
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .precios_subte {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .tarifa-card {
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 76%);
+            padding: 20px;
+            background-color: #fed217b0;
+
+            .tarifa-info {
+                display: flex;
+                flex-direction: column;
+
+                .precios {
+                    .rango {
+                        font-weight: bold;
+                    }
+
+                    .precio {
+                        color: #007bff;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .horarios {
+        .img_sub {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #fed21752;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 76%);
+        }
+    }
+
+    .mapa {
+        .img_sub_dos {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #fed217b0;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 76%);
+        }
+    }
+
+    @media screen and (max-width: 440px) {
+        .text-danger {
+            font-size: 12px;
+        }
+
+        .llegada {
+            width: 35% !important;
+        }
+
+        .salida {
+            width: 30% !important;
+        }
+
+        h1,
+        h2 {
+            font-size: 20px !important;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .container_dos {
+            margin-top: 10px !important;
+        }
+
+        .precios_subte_contenedor {
+            display: flex;
+            flex-direction: column !important;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .img_sub_dos {
+            justify-content: flex-start !important;
+        }
+
+        .img_sub {
+            justify-content: flex-start !important;
+        }
+    }
+
+
+}

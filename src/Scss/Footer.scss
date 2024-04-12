@@ -1,0 +1,32 @@
+footer {
+    background-color: #fed217ed;
+
+    .contenedorIcon {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background: #0a66c2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon-any {
+            font-size: 25px;
+        }
+    }
+
+    .contenedorIconPortfolio {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background: #52575d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+
+        .icon-any {
+            font-size: 25px;
+        }
+    }
+}

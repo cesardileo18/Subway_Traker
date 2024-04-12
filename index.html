@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/subte.ico" />
+  <meta name="description"
+    content="Pensando en la comodidad y eficiencia de los usuarios del subte en la Ciudad de
+     Buenos Aires, he desarrollado esta aplicación que ofrece información en tiempo real
+      sobre el servicio. A través de una API propia, esta
+       aplicación consume datos actualizados del gobierno de la ciudad para proporcionar 
+       detalles precisos sobre todas las líneas del subte, incluyendo horarios de paso en
+        cada estación y notificaciones sobre posibles retrasos.
+    Para garantizar la exactitud de la información, implementé un proceso de ajuste de
+     datos, donde realizo análisis estadísticos entre las discrepancias de tiempo de
+      llegada y salida reportadas. Además, si una línea experimenta algún problema,
+       la aplicación notifica de manera oportuna y también incluye un scraping a la 
+       página oficial para obtener los precios actualizados de los pasajes.
+    Además, para mantener actualizados otros datos relevantes, como los horarios de 
+    apertura y cierre de cada estación, he creado un cronograma automatizado que se ejecuta cada tres días para verificar si hay cambios y actualizar la base de datos en consecuencia. Esto garantiza que los usuarios siempre tengan acceso a la información más reciente y confiable.
+    Como un valor añadido, la aplicación también ofrece imágenes del mapa del subte o metro, así como horarios detallados de funcionamiento de cada estación durante todos los días de la semana. Con esta aplicación, los usuarios pueden planificar sus viajes con confianza y comodidad, estando siempre al tanto de cualquier cambio o novedad en el servicio del subte de Buenos Aires.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subway Traker</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

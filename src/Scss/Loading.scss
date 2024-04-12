@@ -1,0 +1,17 @@
+.container_loading {
+    width: 100%;
+    img.imagen_Subte {
+        max-width: 250px;
+        width: 100%;
+    }
+    animation: slideInOutContainerLoading 6s infinite; /* Aplicar animación al contenedor */
+    @keyframes slideInOutContainerLoading {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}

@@ -1,0 +1,92 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+main {
+  background-color: #fed2174a;
+  display: flex;
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul li {
+  list-style: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+p {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.imgs_subte {
+  max-width: 800px !important;
+  width: 100% !important;
+}
+.llegada {
+  background-color: lightgreen;
+  padding: 5px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.salida {
+  background-color: lightblue;
+  padding: 5px;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.tooltip-price {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.tooltip-text-price {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip-price:hover .tooltip-text-price {
+  visibility: visible;
+  opacity: 1;
+}
+
+.download-icon {
+  cursor: pointer;
+  position: relative;
+  left: -18px !important;
+  top: 3px;
+  font-size: 20px;
+}
