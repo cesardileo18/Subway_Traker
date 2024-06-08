@@ -13,26 +13,27 @@ const Home = () => {
     const [subwayInformation, setSubwayInformation] = useState()
     const [subwayAlert, setSubwayAlert] = useState()
     const [subwayPrices, setSubwayPrices] = useState()
+    // const [updateSubwayPrices, setUpdateSubwayPrices] = useState()
     const [primerStopName, setPrimerStopName] = useState(null); // Almacena primerStopName
     const [loding, setLoding] = useState(false)
     useEffect(() => {
         setLoding(true);
         const subwayTraker = new SubwayTraker();
-    
+
         const fetchData = async () => {
             try {
                 const subwayInfo = await subwayTraker.getSubwayInformation();
                 setSubwayInformation(subwayInfo);
                 setPrimerStopName(subwayInfo.ida?.map(san => san.stations[0]?.stopName));
-    
+
                 const subwayStatus = await subwayTraker.getSubwayStatus();
                 setSubwayAlert(subwayStatus);
-    
+
                 const subwayPrices = await subwayTraker.getSubwayPrices();
                 setSubwayPrices(subwayPrices);
-    
+
                 // const updateSubwayPrices = await subwayTraker.getUpdateSubwayPrices();
-                // console.log('updateSubwayPrices', updateSubwayPrices);
+                // setUpdateSubwayPrices(updateSubwayPrices)
             } catch (error) {
                 console.error('Error:', error);
             } finally {
@@ -41,6 +42,7 @@ const Home = () => {
         };
         fetchData();
     }, []);
+    // console.log('updateSubwayPrices', updateSubwayPrices)
     const titleSubte = (title) => {
         // Eliminar las letras finales "_A01", "_A02", "_B01", etc.
         const linea = title.replace(/_[A-Z]\d{2}$/, '');
@@ -147,6 +149,7 @@ const Home = () => {
                 console.log('Hubo un error en la descarga de la imagen', error)
             });
     };
+    const primerRegistro = subwayPrices && subwayPrices[0];
     return (
         <>
             {loding ?
@@ -207,7 +210,7 @@ const Home = () => {
                                                                                     <h6 className='mb-2'>De {primerName} a {segundoNombre}</h6>
                                                                                 </div>
                                                                                 {
-                                                                                  san && san.stations.map((esta, estaIndex) => {
+                                                                                    san && san.stations.map((esta, estaIndex) => {
                                                                                         const isEven = estaIndex % 2 === 0;
                                                                                         return (
                                                                                             <div key={estaIndex} className={`d-flex justify-content-center ${isEven ? 'even-background' : 'odd-background'}`}>
@@ -292,42 +295,35 @@ const Home = () => {
                             })}
                         </section>
                         <section className='precios_subte'>
-                            {subwayPrices && subwayPrices.map((price, index) => (
-                                <div key={index} className='tarifa-card mt-2'>
-                                    {price.tituloTarifa.map((title, i) => {
-                                        return (
-                                            <div key={i} className='tarifa-info'>
-                                                <div className='m-'>
-                                                    <div className='d-flex align-items-center justify-content-evenly precios_subte_contenedor'>
-                                                        <h2 className='text-center pb-2'>{title.titulo}</h2>
-                                                        <p className='text-center fecha'>
-                                                            <FontAwesomeIcon className='px-1' icon={faClockFour} />
-                                                            {price.fecha}
-                                                            <span className='tooltip-price px-2'>
-                                                                <FontAwesomeIcon icon={faCircleInfo} />
-                                                                <span className='tooltip-text-price'>Esta información
-                                                                    se actualiza automáticamente cada 3 días. Si el software
-                                                                    no detecta cambios en los precios, la fecha y los precios
-                                                                    permanecerán sin cambios.</span>
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className='precios'>
-                                                    {price.preciosPorViaje.map((precio, inde) => {
-                                                        return (
-                                                            <p key={inde} className='mt-2'>
-                                                                <span className='rango'>{precio.rango}: </span>
-                                                                <span className='precio'><FontAwesomeIcon className='ms-1' icon={faDollarSign} />{precio.precio}</span>
-                                                            </p>
-                                                        )
-                                                    })}
+                            {primerRegistro && (
+                                <div className='tarifa-card mt-2'>
+                                    {primerRegistro.tituloTarifa.map((title, i) => (
+                                        <div key={i} className='tarifa-info'>
+                                            <div className='m-'>
+                                                <div className='d-flex align-items-center justify-content-evenly precios_subte_contenedor'>
+                                                    <h2 className='text-center pb-2'>{title.titulo}</h2>
+                                                    <p className='text-center fecha'>
+                                                        <FontAwesomeIcon className='px-1' icon={faClockFour} />
+                                                        {primerRegistro.fecha}
+                                                        <span className='tooltip-price px-2'>
+                                                            <FontAwesomeIcon icon={faCircleInfo} />
+                                                            <span className='tooltip-text-price'>Esta información se actualiza automáticamente cada 3 días. Si el software no detecta cambios en los precios, la fecha y los precios permanecerán sin cambios.</span>
+                                                        </span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                        )
-                                    })}
+                                            <div className='precios'>
+                                                {primerRegistro.preciosPorViaje.map((precio, inde) => (
+                                                    <p key={inde} className='mt-2'>
+                                                        <span className='rango'>{precio.rango}: </span>
+                                                        <span className='precio'><FontAwesomeIcon className='ms-1' icon={faDollarSign} />{precio.precio}</span>
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            )}
                         </section>
                         <section className='d-flex flex-column align-items-center m-1 horarios'>
                             <h2 className='m-2'>Horarios del servicio</h2>
